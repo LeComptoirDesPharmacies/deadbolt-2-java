@@ -12,5 +12,3 @@ libraryDependencies ++= Seq(
 )
 
 resolvers += Resolver.sonatypeRepo("snapshots")
-
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
