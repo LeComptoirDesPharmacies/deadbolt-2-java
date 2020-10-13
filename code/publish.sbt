@@ -1,12 +1,14 @@
 publishMavenStyle := true
 
 publishTo := {
-  val nexus = "https://oss.sonatype.org/"
+    val jfrog = "https://lcdp.jfrog.io/artifactory/"
   if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
+    Some("snapshots" at jfrog + "sbt-dev")
   else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+    Some("releases"  at jfrog + "sbt-release")
 }
+
+credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
 homepage := Some(url("http://deadbolt.ws"))
 
